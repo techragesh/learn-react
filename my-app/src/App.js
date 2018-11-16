@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Book from './Book';
+import AddBook from './AddBook';
 
 class App extends Component {
   state = {
@@ -23,11 +24,25 @@ class App extends Component {
     ]
   };
 
+  addBook = book => {
+    console.log(book);
+    book.id = Math.random();
+    let bk = [...this.state.books, book];
+    this.setState({
+      books: bk
+    });
+  };
+
+  deleteBook = id => {
+    console.log('Book Id', id);
+  };
+
   render() {
     return (
       <div className="App">
         <h1>techragesh.com</h1>
-        <Book books={this.state.books} />
+        <Book deleteBook={this.deleteBook} books={this.state.books} />
+        <AddBook addBook={this.addBook} />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const Book = ({ books }) => {
+const Book = ({ books, deleteBook }) => {
   // const bookList = books.map(book => {
   //   return (
   //     <div className="" key={book.id}>
@@ -19,6 +19,7 @@ const Book = ({ books }) => {
             <div>Author: {book.author}</div>
             <div>Publish: {book.publish}</div>
             <div>Year: {book.year}</div>
+            <button onClick={() => deleteBook(book.id)}>Delete Book</button>
           </div>
         ) : null;
       })}
