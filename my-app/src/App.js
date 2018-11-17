@@ -35,6 +35,12 @@ class App extends Component {
 
   deleteBook = id => {
     console.log('Book Id', id);
+    let bk = this.state.books.filter(book => {
+      return book.id !== id;
+    });
+    this.setState({
+      books: bk
+    });
   };
 
   render() {
